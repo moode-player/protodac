@@ -11,3 +11,5 @@ The TDA1387 is a very interesting 16-bit design and represents the end of the mu
 The ProtoDAC is one of the easiest NOS DAC's to build. The number of components is low and the circuit design is simple since the TDA1387 directly uses I2S from the Raspberry Pi as input and passive I/V is used for the output stage.
 
 Most importantly, the sound quality of the finished DAC is excellent, especially when using premium components.
+
+By: @hifinet (c) 2023
