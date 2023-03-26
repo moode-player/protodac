@@ -36,7 +36,7 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
 
 The ProtoDAC TDA1387 X8 is a DIY DAC based on the vintage Philips TDA1387 multibit DAC chip in an eight chip module as pictured below. The chips are configured in parallel with decoupling capacitors and pin 7 capacitors on the underside of the module.
 
-![](images/protodac_x8_module.jpg)
+![](../images/protodac_x8_module.jpg)
 
 The module is designed as a direct plug in replacement for the famous TDA1541, which is now difficult to obtain. The TDA1541 was a flagship Philips multibit 16 bit DAC in a 28 pin Dual In-line Package (DIP), and is older and more complex. The TDA1387 is a later development multibit DAC with current output, and simplified having only 8 pins.
 
@@ -58,7 +58,7 @@ NOTE: This is not final PCB revision
 
 The Computer Aided Design (CAD) drawing of the PCB shows the board layout and location of the component parts. The design allows for several component variations including axial or radial output I/V capacitors, RCA jacks or direct wiring to PCB L/R channel out and 5V power from GPIO or via direct wiring to PCB.
 
-![](images/protodac_pcb_rev_2b.jpg)
+![](../images/protodac_pcb_rev_2b.jpg)
 
 |Reference designator|Component|Description|
 |:-|:-|:-|
@@ -74,7 +74,7 @@ The Computer Aided Design (CAD) drawing of the PCB shows the board layout and lo
 
 Below is a block diagram of the circuit.
 
-![](images/protodac_schematic_v2.jpg)
+![](../images/protodac_schematic_v2.jpg)
 
 ## 2.3 Pin mappings
 
@@ -89,7 +89,7 @@ Below are the pin mappings for the GPIO header and TDA1387 X8 Module.
 |3|DATA|21|40|
 |4|BCK|18|12|
 
-![](images/protodac_gpio_header_500.jpg)
+![](../images/protodac_gpio_header_500.jpg)
 
 ### TDA1387 X8 Module
 
@@ -117,7 +117,7 @@ The module is implemented as a 28 pin DIP and is connected only by pins 1-6, 25 
 
 </td></tr></table>
 
-![](images/protodac_module_dip_dil_v4.jpg)
+![](../images/protodac_module_dip_dil_v4.jpg)
 
 [Back to Top](#protodac-tda1387-x8-)
 
@@ -133,7 +133,7 @@ The chips are used and originate from the overseas chip-pull industry. Generally
 
 The image below shows an example chip from each of two modules. Note the orientation of the name "Thailand".
 
-![](images/protodac_tda1387_used_chips.jpg)
+![](../images/protodac_tda1387_used_chips.jpg)
 
 ## 3.2 Current to Voltage (I/V) resistors
 
@@ -149,7 +149,7 @@ Bulk metal foil can be ordered to spec, but they are expensive. Metal film sound
 
 The resistor value is critical to avoid clipping at 0dB. The I/V resistor should be no larger than 430R for Vcc of 5 VDC. I measured THD with 0 dB 1kHz sine wave input to the DAC with various I/V resistances. See the chart below. Distortion at 223.5R is measured at 0.0080% and at 322R it is 0.0097%, and THD increases linearly with resistance up to just past 430R. Then distortion starts to increase exponentially, indicating clipping.
 
-![](images/protodac_thd_distortion_600_v3.jpg)
+![](../images/protodac_thd_distortion_600_v3.jpg)
 
 Excessive distortion is created when the DAC is clipping. Fortunately, the TDA1387 has a high voltage compliance of 3.5V at 5V Vcc. Clipping occurs if the AC signal exceeds +3.5V or 0V. The final calculation depends on the I/V resistance and the module with its particular characteristics (DC current at idle, and the peak to peak current at full signal). The I/V resistor should be no larger than 430R for Vcc of 5 VDC.
 
