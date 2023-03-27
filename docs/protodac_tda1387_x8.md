@@ -153,13 +153,9 @@ The resistor value is critical to avoid clipping at 0dB. The I/V resistor should
 
 Excessive distortion is created when the DAC is clipping. Fortunately, the TDA1387 has a high voltage compliance of 3.5V at 5V Vcc. Clipping occurs if the AC signal exceeds +3.5V or 0V. The final calculation depends on the I/V resistance and the module with its particular characteristics (DC current at idle, and the peak to peak current at full signal). The I/V resistor should be no larger than 430R for Vcc of 5 VDC.
 
-Since there are variations in the modules, it would be prudent to measure the distortion with various resistances in the target range with your module, before buying expensive I/V resistors. This would be especially the case if you are trying to push the 430R limit or the Vcc maximum of the TDA1387. You can measure distortion with a computer, USB audio interface and REW. The most reliable method would be to use cheap metal films in 430R value, and check distortion with the variations in resistance values, based on accurate resistance measurements with a DMM. Another factor will be supply voltage, which can change full scale output current. So use the same supply voltage with the expensive I/V resistors.
-
 The Vishay Z-foil resistors from Texas Components (TX2575) come in either 470R (too high) or 390R (possibly too low) as a standard resistance, but not 430R. They sell custom values for the same price. Charcroft does sell a Z-foil resistor in 430R. Note the tolerance is +/- 0.1%.
 
 The output signal voltage decreases with a lower I/V resistor, and this may be a factor to consider in your particular system. Do you have a preamplifier that can amplify a weak signal from the DAC?
-
-TeraDak TDA1387 x8 uses 390R I/V with 8000uF, which has a screen-like image (no depth). I have seen earlier versions with a 560R I/V resistor, so it seems they have corrected this problem with more recent versions. The larger capacitance somewhat compensates sonically for clipping. The L1387 USB x8 uses 560R with 1300uF. The I/V resistor is too high, clipping will occur at 0dB.
 
 The source of Vishay S and Z-foil resistors in the US is Texas Components, and in Europe it is Charcroft . TX2575 are about $13 each without shipping. The TX2352 or S-foil is the "original" foil naked audio resistor, and are about $9 each. The Vishay S and Z foil resistors are vastly better performing in this DAC than other types.
 
