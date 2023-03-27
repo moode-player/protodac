@@ -26,15 +26,15 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
   - [4.2. Assembly](#41-assembly)
 - [5. moOde audio player](#5-moode-audio-player)
   - [5.1. Audio Configuration](#51-audio-configuration)
-  - [5.2. CamillaDSP](#52-camilladsp)
-  - [5.3. MPD and SoX](#53-mpd-and-sox)
+  - [5.2. Polarity Inversion](#52-polarity-inversion)
+  - [5.3. Updsampling](#53-upsampling)
 - [6. Appendix](#6-appendix)
   - [6.1. PCB reference designators](#61-pcb-reference-designators)
   - [6.2. Acronyms](#62-acronyms)
 
 # 1. Introduction
 
-The ProtoDAC TDA1387 X8 is a DIY DAC based on the vintage Philips TDA1387 multibit DAC chip in an eight chip module as pictured below. The chips are configured in parallel with decoupling capacitors and pin 7 capacitors on the underside of the module.
+The ProtoDAC TDA1387 X8 [ProtoDAC] is a DIY DAC based on the vintage Philips TDA1387 multibit DAC chip in an eight chip module as pictured below. The chips are configured in parallel with decoupling capacitors and pin 7 capacitors on the underside of the module.
 
 ![](../images/protodac_x8_module.jpg)
 
@@ -218,7 +218,7 @@ Perform a final quality check and inspect all soldered joints for any obvious fl
 
 # 5. moOde audio player
 
-The ProtoDAC TDA1387 X8 uses a passive I2S interface which means the DAC accepts only I2S audio data and does have any chip options or "hardware" volume control that can be manipulated via Advanced Linux Sound Architecture (ALSA) commands.
+The ProtoDAC uses a passive I2S interface which means the DAC accepts only I2S audio data and does have any chip options or "hardware" volume control that can be manipulated via Advanced Linux Sound Architecture (ALSA) commands.
 
 ## 5.1. Audio Configuration
 
@@ -230,13 +230,35 @@ Select "ProtoDAC TDA1387 X8" from the Named I2S device dropdown list, click SET 
 
 Select "Direct (hw)" from the Output mode dropdown list and then click SET.
 
-### Configuration test
+### Sound test
 
 Click the Home button at the top left to return to Playback view. Set volume to a low level, scroll to the end of the Queue and click the Stereo Test track. Raise the volume to a suitable level and verify that the Left/Right channel and Phase tests produce correct results.
 
-## 5.2. CamillaDSP
+## 5.2. Polarity Inversion
 
-## 5.3. MPD and SoX
+The ProtoDAC output polarity is inverted and thus a Polarity Inversion operation must be performed on the input signal so that correct +/- polarity is output to the loudspeakers.
+
+The following options are available.
+
+1. The Polarity Inversion option in the MPD section of Audio Config. This is an ALSA output plugin.
+2. The CamillaDSP Polarity Inversion or Polarity Inversion with VC (Volume Control) configurations.
+
+## 5.3. Upsampling
+
+The ProtoDAC supports sample rates from 44.1 kHz to 384 kHz and accepts bit-depths from 16 to 32 bits where the Least Significant Bits (LSB) over 16 are ignored.  
+
+Two resampling options are included in moOde. The first is Sound eXchange (SoX) resampling which is available in the Music Player Daemon (MPD) Configuration screen. The second is CamillaDSP resampling which is available in the CamillaDSP configuration screen.
+
+#### SoX Resampling  
+
++ Set Enable to "Yes"
++ Set Bit depth to "Any" or optionally to "16" if you want SoX to manage bit depth conversion instead of ProtoDAC
++ Set Sample rate to the desired rate up to 384 kHz
++ Leave Channels set to "Stereo"
++ Leave Quality set to "High (Default)"
+
+#### CamillaDSP Resampling
+
 
 [Back to Top](#protodac-tda1387-x8-)
 
@@ -256,10 +278,12 @@ Click the Home button at the top left to return to Playback view. Set volume to 
 
 |Acronym|Description|
 |:-|:-|
+|ALSA|Advanced Linux Sound Architecture|
 |BCK|Bit Clock|
 |CAD|Computer Aided Design|
 |DAC|Digital to Audio Converter|
 |DOUT|Data Output|
+|DSP|Digital Signal Processing|
 |GND|Ground|
 |GPIO|General Purpose Input Output|
 |HAT|Hardware Attached on Top|
@@ -267,8 +291,11 @@ Click the Home button at the top left to return to Playback view. Set volume to 
 |I2S|Integrated Interchip Sound|
 |I/V|Current to Voltage|
 |kHz|Kilohertz|
+|LSB|Least Significant Bits|
+|MPD|Music Player Daemon|
 |NOS|Non-Oversampling|
 |PCB|Printed Circuit Board|
+|SoX|Sound eXchange|
 |uF|Microfarad|
 |Vcc|Supply Voltage|
 |VDC|Volts Direct Current|
