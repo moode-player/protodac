@@ -21,10 +21,10 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
   - [3.3. Integrated Interchip Sound (I2S) resistors](#33-integrated-interchip-sound-i2s-resistors)
   - [3.4. Electrolytic decoupling capacitors](#34-electrolytic-decoupling-capacitors)
   - [3.5. Output coupling capacitors](#35-output-coupling-capacitors)
-- [4. Assembly and testing](#4-assembly-and-testing)
-  - [4.1. Assembly](#41-assembly)
-  - [4.2. Testing](#42-testing)
-- [5. moOde configuration](#5-moode-configuration)
+- [4. Testing and Assembly](#4-testing-and-assembly)
+  - [4.1. Testing](#42-testing)
+  - [4.2. Assembly](#41-assembly)
+- [5. moOde audio player](#5-moode-audio-player)
   - [5.1. Audio Config](#51-audio-config)
   - [5.2. CamillaDSP](#52-camilladsp)
   - [5.3. MPD and SoX](#53-mpd-and-sox)
@@ -187,13 +187,53 @@ Boutique film capacitors can be very expensive and are often too large for the a
 
 [Back to Top](#protodac-tda1387-x8-)
 
-# 4. Assembly and Testing
+# 4. Testing and Assembly
+
+## 4.1 Testing
+
+Testing the TDA1387 x 8 module is recommended before assembly, since the chips are used. A simple test for zero signal current can be done on a breadboard.
+
+  + Ground the three I2S inputs (pins 1-3).  
+  + Use 430R resistors between pin 6 (right) and ground, and pin 25 (left) and ground.  
+  + Apply +5VDC to pin 28 and ground to pin 5.  
+  + Measure DC voltage at pin 6 and pin 25 with a DMM. It should be approximately 1.9V, and both left and right outputs should be close, certainly within 0.1V.  
+
+Reject modules that cannot pass this test. From personal experience, less than 5% of modules are bad (all had severe DC channel imbalance).
+
+## 4.2 Assembly
+
+Assembly consists of installing and soldering the components to the PCB. Use a high conductivity, 60/40 (Tin/Lead), rosin core, fast melting solder for example Kester 0.031 inch diameter steel-based solder.
+
+1. Mount the three I2S resistors R1-R3 to the top of the PCB, and solder leads to the pads on the bottom.
+
+2. Mount the module to the top of the PCB, and solder pins 1-3, 5, 6, 25 and 28 to the pads on the bottom. Be sure to DC test the module before soldering (4.1 Testing).
+
+3. Mount the 40 pin female header (H1) to the bottom, and solder to the pads on the top. Double check the solder joints on pins 2,4,6,12,35,40.
+
+4. Install capacitors C1, C2 or C5, C6 to the top of the board and use convenient pads (for example, an axial capacitor could use the left C5 pad for one lead and the right C2 pad for the other lead).
+
+5. Install the I/V resistors R4, R5 on the top and solder leads to the bottom pads. Handle with care. Use the C1, C2, C5 or C6 capacitors to physically protect the resistors i.e. mount the resistors below the top of the capacitors. Use clip on heat sinks (alligator clips or test leads) to protect the resistors during soldering.
+
+6. Install the RCA jacks to the top of the PCB and solder to the pads on the bottom.
+
+Perform a final quality check and inspect all soldered joints for any obvious flaws or defects, such as cracks, gaps, discoloration, or excess solder. Finally, clean off any flux residue on the PCB.
 
 [Back to Top](#protodac-tda1387-x8-)
 
-# 5. moOde configuration
+# 5. moOde audio player
 
+The ProtoDAC TDA1387 X8 uses a passive I2S interface which means the DAC accepts only I2S audio data and does have any chip options or "hardware" volume control that can be manipulated via Advanced Linux Sound Architecture (ALSA) commands.
 
+## 5.1. Audio Config
+
+Select "ProtoDAC TDA1387 X8" from the Named I2S device list, click SET and then Restart the system. After restarting the Volume type setting should show
+"Software".  
+
+Click the Home button at the top left to return to Playback view. Set volume to a low level, scroll to the end of the Queue and click the Stereo Test track. Raise the volume to a suitable level and verify that the Left/Right channel and Phase tests are correct.
+
+## 5.2. CamillaDSP
+
+## 5.3. MPD and SoX
 
 [Back to Top](#protodac-tda1387-x8-)
 
@@ -209,7 +249,7 @@ Boutique film capacitors can be very expensive and are often too large for the a
 |R|Resistor|
 |U|Integrated Circuit (IC)|
 
-## 6.2 Acronums
+## 6.2 Acronyms
 
 |Acronym|Description|
 |:-|:-|
