@@ -4,7 +4,7 @@ ProtoDAC TDA1387 X8 <!-- omit in toc -->
 ===============================================
 By: @hifinet (c) 2023  
 Edited by @Tim Curtis  
-DRAFT Updated: 2023-03-26
+DRAFT Updated: 2023-03-27
 
 This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital to Analog Converter (DAC) including technology, component sources and instructions for building the DAC.
 
@@ -25,7 +25,7 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
   - [4.1. Testing](#42-testing)
   - [4.2. Assembly](#41-assembly)
 - [5. moOde audio player](#5-moode-audio-player)
-  - [5.1. Audio Config](#51-audio-config)
+  - [5.1. Audio Configuration](#51-audio-configuration)
   - [5.2. CamillaDSP](#52-camilladsp)
   - [5.3. MPD and SoX](#53-mpd-and-sox)
 - [6. Appendix](#6-appendix)
@@ -224,12 +224,19 @@ Perform a final quality check and inspect all soldered joints for any obvious fl
 
 The ProtoDAC TDA1387 X8 uses a passive I2S interface which means the DAC accepts only I2S audio data and does have any chip options or "hardware" volume control that can be manipulated via Advanced Linux Sound Architecture (ALSA) commands.
 
-## 5.1. Audio Config
+## 5.1. Audio Configuration
 
-Select "ProtoDAC TDA1387 X8" from the Named I2S device list, click SET and then Restart the system. After restarting the Volume type setting should show
-"Software".  
+### Audio Output
 
-Click the Home button at the top left to return to Playback view. Set volume to a low level, scroll to the end of the Queue and click the Stereo Test track. Raise the volume to a suitable level and verify that the Left/Right channel and Phase tests are correct.
+Select "ProtoDAC TDA1387 X8" from the Named I2S device dropdown list, click SET and then Restart the system. After restarting the Volume type setting should show "Software".
+
+### ALSA Options
+
+Select "Direct (hw)" from the Output mode dropdown list and then click SET.
+
+### Configuration test
+
+Click the Home button at the top left to return to Playback view. Set volume to a low level, scroll to the end of the Queue and click the Stereo Test track. Raise the volume to a suitable level and verify that the Left/Right channel and Phase tests produce correct results.
 
 ## 5.2. CamillaDSP
 
