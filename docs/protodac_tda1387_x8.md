@@ -218,47 +218,73 @@ Perform a final quality check and inspect all soldered joints for any obvious fl
 
 # 5. moOde audio player
 
-The ProtoDAC uses a passive I2S interface which means the DAC accepts only I2S audio data and does have any chip options or "hardware" volume control that can be manipulated via Advanced Linux Sound Architecture (ALSA) commands.
+The following sections contain the steps necessary to configure the ProtoDAC in moOde. Note The ProtoDAC does not have any configurable chip options, driver options or "hardware" volume and thus these settings will not be available in the configuration screens.
 
 ## 5.1. Audio Configuration
 
+Click Menu, configure Audio to configure the I2S driver and Advanced Linux Sound Architecture (ALSA) output mode. The driver is configured in the "Audio Output" section. The output mode is configured in the "ALSA Options" section.
+
 ### Audio Output
 
-Select "ProtoDAC TDA1387 X8" from the Named I2S device dropdown list, click SET and then Restart the system. After restarting the Volume type setting should show "Software".
+Select "ProtoDAC TDA1387 X8" from the "Named I2S device" dropdown list, click SET and then Restart the system. After restarting the "Volume type" setting should show "Software".
 
 ### ALSA Options
 
-Select "Direct (hw)" from the Output mode dropdown list and then click SET.
+Select "Direct (hw)" from the "Output mode" dropdown list and then click SET.
 
 ### Sound test
 
-Click the Home button at the top left to return to Playback view. Set volume to a low level, scroll to the end of the Queue and click the Stereo Test track. Raise the volume to a suitable level and verify that the Left/Right channel and Phase tests produce correct results.
+Click the "Home" button at the top left to return to Playback view. Set volume to a low level, scroll to the end of the Queue and click the Stereo Test track. Raise the volume to a suitable level and verify that the Left/Right channel and Phase tests produce correct results.
 
 ## 5.2. Polarity Inversion
 
-The ProtoDAC output polarity is inverted and thus a Polarity Inversion operation must be performed on the input signal so that correct +/- polarity is output to the loudspeakers.
+The ProtoDAC output polarity is inverted and thus a Polarity Inversion operation must be performed on the input signal so that correct +/- polarity is output to the loudspeakers.  
 
-The following options are available.
+Two polarity inversion options are included in moOde. The first is ALSA based which is available in the Music Player Daemon (MPD) section of the Audio Configuration screen. The second is CamillaDSP based which is available in the CamillaDSP Configuration screen.
 
-1. The Polarity Inversion option in the MPD section of Audio Config. This is an ALSA output plugin.
-2. The CamillaDSP Polarity Inversion or Polarity Inversion with VC (Volume Control) configurations.
+### ALSA Polarity Inversion
+
++ Menu, configure Audio
++ Scroll down to the "MPD Options" section
++ Scroll down to "DSP options"
++ Click "Polarity inversion" ON
++ Click SET
+
+### CamillaDSP Polarity Inversion
+
++ Menu, Configure, CamillaDSP
++ Set "Signal processing" to Polarity Inversion or Polarity Inversion with VC (Volume Control)
++ Click SAVE
 
 ## 5.3. Upsampling
 
 The ProtoDAC supports sample rates from 44.1 kHz to 384 kHz and accepts bit-depths from 16 to 32 bits where the Least Significant Bits (LSB) over 16 are ignored.  
 
-Two resampling options are included in moOde. The first is Sound eXchange (SoX) resampling which is available in the Music Player Daemon (MPD) Configuration screen. The second is CamillaDSP resampling which is available in the CamillaDSP configuration screen.
+Two resampling options are included in moOde. The first is Sound eXchange (SoX) based which is available in the MPD Configuration screen. The second is CamillaDSP based which is available in the CamillaDSP Pipeline Editor screen.
 
-#### SoX Resampling  
+### SoX Resampling  
 
++ Menu, Configure, MPD
 + Set Enable to "Yes"
 + Set Bit depth to "Any" or optionally to "16" if you want SoX to manage bit depth conversion instead of ProtoDAC
 + Set Sample rate to the desired rate up to 384 kHz
 + Leave Channels set to "Stereo"
 + Leave Quality set to "High (Default)"
++ SAVE
 
-#### CamillaDSP Resampling
+### CamillaDSP Resampling
 
++ Menu, Configure, CamillaDSP
++ Set Signal processing to "Polarity Inversion" or "Polarity Inversion with VC (Volume Control)"
++ SAVE
++ Scroll down to the Pipeline editor section
++ Set Status to "ON"
++ OPEN
++ Check "enable_resampling"
++ Leave "resampler_type" set to "BalancedAsync"
++ Set "samplerate" to the desired rate
++ Click "Apply to DSP" to set the rate but not save it to the configuration file
++ Click "Apply and save" to set the rate and save it to the configuration file
 
 [Back to Top](#protodac-tda1387-x8-)
 
@@ -287,8 +313,9 @@ Two resampling options are included in moOde. The first is Sound eXchange (SoX) 
 |GND|Ground|
 |GPIO|General Purpose Input Output|
 |HAT|Hardware Attached on Top|
-|IC|Integrated Circuit|
+|I2C|Inter-Integrated Circuit|
 |I2S|Integrated Interchip Sound|
+|IC|Integrated Circuit|
 |I/V|Current to Voltage|
 |kHz|Kilohertz|
 |LSB|Least Significant Bits|
