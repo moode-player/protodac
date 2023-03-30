@@ -3,8 +3,10 @@
 ProtoDAC TDA1387 X8 <!-- omit in toc -->
 ===============================================
 By: @hifinet (c) 2023  
+[License: MIT](#63-mit-license)
+
 Edited by @Tim Curtis  
-DRAFT Updated: 2023-03-27
+DRAFT Updated: 2023-03-30
 
 This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital to Analog Converter (DAC) including technology, component sources and instructions for building the DAC.
 
@@ -21,9 +23,7 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
   - [3.3. Integrated Interchip Sound (I2S) resistors](#33-integrated-interchip-sound-i2s-resistors)
   - [3.4. Electrolytic decoupling capacitors](#34-electrolytic-decoupling-capacitors)
   - [3.5. Output coupling capacitors](#35-output-coupling-capacitors)
-- [4. Testing and Assembly](#4-testing-and-assembly)
-  - [4.1. Testing](#42-testing)
-  - [4.2. Assembly](#41-assembly)
+- [4. Assembly](#4-assembly)
 - [5. moOde audio player](#5-moode-audio-player)
   - [5.1. Audio Configuration](#51-audio-configuration)
   - [5.2. Polarity Inversion](#52-polarity-inversion)
@@ -31,6 +31,7 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
 - [6. Appendix](#6-appendix)
   - [6.1. PCB reference designators](#61-pcb-reference-designators)
   - [6.2. Acronyms](#62-acronyms)
+  - [6.3. MIT License](#63-mit-license)
 
 # 1. Introduction
 
@@ -165,9 +166,11 @@ Use 430R or 470R generic 1/8 or 1/4W metal film. The purpose is to limit high fr
 
 ## 3.4 Electrolytic decoupling capacitors
 
-The choice of Vcc electrolytic decoupling capacitor depends on the value of the I/V resistor in an inverse relationship. As the I/V resistor decreases, the capacitor needs to increase. If the capacitor is too low in value for the I/V resistor, the sound with be anemic, with weak bass and dynamics, but more 3D with deep soundstage. If the capacitor value is too high for the I/V resistor, the depth of soundstage will decrease.
+The choice of Vcc electrolytic decoupling capacitor depends on the value of the I/V resistor in an inverse relationship.  
 
-For a 430R I/V resistor, 1800-2200uF is about right. You can use capacitors in parallel for better sound quality. Additional caps can be added in the open area below the module and between the output coupling caps. Connect positive to the 5V strip and negative to the 3V3 side GND strip with jumper wires. Listen to various values by press fitting before soldering.
+As the I/V resistor decreases, the capacitor needs to increase. If the capacitor is too low in value for the I/V resistor, the sound with be anemic, with weak bass and dynamics, but more 3D with deep soundstage. If the capacitor value is too high for the I/V resistor, the depth of soundstage will decrease.
+
+For a 430R I/V resistor, 1800-2200uF is about right.
 
 ## 3.5 Output coupling capacitors
 
@@ -183,20 +186,7 @@ Boutique film capacitors can be very expensive and are often too large for the a
 
 [Back to Top](#protodac-tda1387-x8-)
 
-# 4. Testing and Assembly
-
-## 4.1 Testing
-
-Testing the TDA1387 x 8 module is recommended before assembly, since the chips are used. A simple test for zero signal current can be done on a breadboard.
-
-  + Ground the three I2S inputs (pins 1-3).  
-  + Use 430R resistors between pin 6 (right) and ground, and pin 25 (left) and ground.  
-  + Apply +5VDC to pin 28 and ground to pin 5.  
-  + Measure DC voltage at pin 6 and pin 25 with a DMM. It should be approximately 1.9V, and both left and right outputs should be close, certainly within 0.1V.  
-
-Reject modules that cannot pass this test. From personal experience, less than 5% of modules are bad (all had severe DC channel imbalance).
-
-## 4.2 Assembly
+# 4. Assembly
 
 Assembly consists of installing and soldering the components to the PCB. Use a high conductivity, 60/40 (Tin/Lead), rosin core, fast melting solder for example Kester 0.031 inch diameter steel-based solder.
 
@@ -213,6 +203,10 @@ Assembly consists of installing and soldering the components to the PCB. Use a h
 6. Install the RCA jacks to the top of the PCB and solder to the pads on the bottom.
 
 Perform a final quality check and inspect all soldered joints for any obvious flaws or defects, such as cracks, gaps, discoloration, or excess solder. Finally, clean off any flux residue on the PCB.
+
+## WARNING
+
+Since the DAC is connected to the GPIO, any assembly errors could not only damage parts on the DAC, but could also permanently damage the Raspberry Pi. Pay particular attention to the polarity markings on the electrolytic capacitors C3 and C4.
 
 [Back to Top](#protodac-tda1387-x8-)
 
@@ -329,3 +323,23 @@ Two resampling options are included in moOde. The first is Sound eXchange (SoX) 
 |Vcc|Supply Voltage|
 |VDC|Volts Direct Current|
 |WS (LRCK)|Word Select (Left/Right Clock)|
+
+## 6.3 MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
