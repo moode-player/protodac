@@ -252,7 +252,11 @@ Two polarity inversion options are included in moOde. The first is ALSA based wh
 
 ## 5.3. Resampling
 
-Resampling can help reduce Intermodulation (IM) distortion if any is audible. IM distortion is caused by the presence of unfiltered ultrasonic sample images. Upsampling to 384 kHz will push these ultrasonic images past 192 kHz at which IM distortion would be unlikely in the audible band. It may also help correct what is called "sinc droop" but this effect is also mostly in the ultrasonic band.
+Playback at the _native bitrate_ of the source audio is recommended but sometimes if specific types of distortion are audible, resampling to a higher bitrate can be used to help reduce this distortion.
+
+One type of distortion that may be reduced by resampling is Intermodulation (IM) distortion. IM distortion is caused by the presence of ultrasonic sample images. Resampling to 384 kHz will push these ultrasonic images past 192 kHz at which IM distortion would likely be inaudible.
+
+Another type of distortion that may be reduced by resampling is band-edge response droop which is commonly referred to as "sinc droop". This typically occurs at 20 kHz but may also occur with greatly reduced effect in lower bands.
 
 The ProtoDAC supports sample rates from 44.1 kHz to 384 kHz and accepts bit-depths from 16 to 32 bits where the Least Significant Bits (LSB) over 16 are ignored.  
 
