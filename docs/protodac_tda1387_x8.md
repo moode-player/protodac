@@ -192,7 +192,7 @@ Assembly consists of installing and soldering the components to the PCB. Use a h
 
 1. Mount the three I2S resistors R1-R3 to the top of the PCB, and solder leads to the pads on the bottom.
 
-2. Mount the module to the top of the PCB, and solder pins 1-3, 5, 6, 25 and 28 to the pads on the bottom. Be sure to DC test the module before soldering (4.1 Testing).
+2. Mount the module to the top of the PCB, and solder pins 1-3, 5, 6, 25 and 28 to the pads on the bottom.
 
 3. Mount the 40 pin female header (H1) to the bottom, and solder to the pads on the top. Double check the solder joints on pins 2,4,6,12,35,40.
 
