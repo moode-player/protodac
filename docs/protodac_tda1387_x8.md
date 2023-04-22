@@ -250,6 +250,16 @@ Two polarity inversion options are included in moOde. The first is ALSA based wh
 + Set "Signal processing" to Polarity Inversion or Polarity Inversion with VC (Volume Control)
 + Click SAVE
 
+### CamillaDSP Chunk Size
+
+If using a Reclocker upstream of the ProtoDAC it's recommended to set the chunk size to 4096 for the Polarity Inversion configuration.
+
++ Menu, Configure, CamillaDSP
++ Pipeline editor ON
++ OPEN Pipeline editor
++ Set Chunk size to 4096
++ Save to file
+
 ## 5.3. Resampling
 
 Playback at the _native bitrate_ of the source audio is recommended but sometimes if specific types of distortion are audible, resampling to a higher bitrate can be used to help reduce this distortion.
