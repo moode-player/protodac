@@ -27,7 +27,8 @@ This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital t
 - [5. moOde audio player](#5-moode-audio-player)
   - [5.1. Audio Configuration](#51-audio-configuration)
   - [5.2. Polarity Inversion](#52-polarity-inversion)
-  - [5.3. Updsampling](#53-upsampling)
+  - [5.3. CamillaDSP Settings](#52-camilladsp-settings)
+  - [5.4. Resampling](#54-resampling)
 - [6. Appendix](#6-appendix)
   - [6.1. PCB reference designators](#61-pcb-reference-designators)
   - [6.2. Acronyms](#62-acronyms)
@@ -247,20 +248,45 @@ Two polarity inversion options are included in moOde. The first is ALSA based wh
 ### CamillaDSP Polarity Inversion
 
 + Menu, Configure, CamillaDSP
++ Set "Default device" to NO
 + Set "Signal processing" to Polarity Inversion or Polarity Inversion with VC (Volume Control)
 + Click SAVE
 
-### CamillaDSP Chunk Size
+## 5.3 CamillaDSP Pipeline Settings
 
-If using a Reclocker upstream of the ProtoDAC it's recommended to set the chunk size to 4096 for the Polarity Inversion configuration.
+These settings are made in the CamillaDSP Pipeline editor
 
 + Menu, Configure, CamillaDSP
 + Pipeline editor ON
++ Expert mode ON
 + OPEN Pipeline editor
+
+### Chunk Size
+
+If using a Hardware Reclocker upstream of the ProtoDAC some latency will be introduced and so it is recommended to set the CamillaDSP chunk size to 4096 to ensure no buffer underruns occur.
+
 + Set Chunk size to 4096
 + Save to file
 
-## 5.3. Resampling
+### Sample format
+
++ Set Capture device sampleformat to S16LE
++ Set Playback device sampleformat to S16LE
++ Save to file
+
+### Dither
+
+If using the Polarity Inversion with VC (Volume Control) configuration it is recommended to add a Dither filter to each channel with a target bit depth of 16 bits.
+
++ Menu, Configure, CamillaDSP
++ Pipeline editor ON
++ Expert mode ON
++ OPEN Pipeline editor
++ Click the "Filters" tab
++ Click + to add a Dither filter to each channel
++ Save to file
+
+## 5.4. Resampling
 
 Playback at the _native bitrate_ of the source audio is recommended but sometimes if specific types of distortion are audible, resampling to a higher bitrate can be used to help reduce this distortion.
 
