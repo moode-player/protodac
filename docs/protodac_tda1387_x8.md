@@ -248,7 +248,7 @@ Two polarity inversion options are included in moOde. The first is ALSA based wh
 ### CamillaDSP Polarity Inversion
 
 + Menu, Configure, CamillaDSP
-+ Set "Default device" to NO
++ Set "Default device" to YES
 + Set "Signal processing" to Polarity Inversion or Polarity Inversion with VC (Volume Control)
 + Click SAVE
 
