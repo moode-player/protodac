@@ -199,7 +199,7 @@ Assembly consists of installing and soldering the components to the PCB. Use a h
 
 4. Install capacitors C1, C2 or C5, C6 to the top of the board and use convenient pads (for example, an axial capacitor could use the left C5 pad for one lead and the right C2 pad for the other lead).
 
-5. Install the I/V resistors R4, R5 on the top and solder leads to the bottom pads. Handle with care. Use the C1, C2, C5 or C6 capacitors to physically protect the resistors i.e. mount the resistors below the top of the capacitors. Use clip on heat sinks (alligator clips or test leads) to protect the resistors during soldering.
+5. Install the I/V resistors R4 and R5 on the top with the labeled (pretty) sides facing away from the TDA1387 module for both, and solder leads to the bottom pads. Handle with care. Use the C1, C2, C5 or C6 capacitors to physically protect the resistors i.e. mount the resistors below the top of the capacitors. Use clip on heat sinks (alligator clips or test leads) to protect the resistors during soldering.
 
 6. Install the RCA jacks to the top of the PCB and solder to the pads on the bottom.
 
