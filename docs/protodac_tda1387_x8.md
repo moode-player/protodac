@@ -6,7 +6,7 @@ By: @hifinet (c) 2023
 [License: MIT](#63-mit-license)
 
 Edited by @Tim Curtis  
-Updated: 2023-07-28
+Updated: 2023-11-27
 
 This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital to Analog Converter (DAC) including technology, component sources and instructions for building the DAC.
 
@@ -198,11 +198,13 @@ Assembly consists of installing and soldering the components to the PCB. Use a h
 
 3. Mount the 40 pin female header (H1) to the bottom, and solder to the pads on the top. Double check the solder joints on pins 2,4,6,12,35,40.
 
-4. Install capacitors C1, C2 or C5, C6 to the top of the board and use convenient pads (for example, an axial capacitor could use the left C5 pad for one lead and the right C2 pad for the other lead).
+4. Test the connections after soldering the 40 pin  header. Using a DMM, be sure you don't have shorts between 5V power (pins 2 and 4) and ground (pin 6) and also 3.3V (pin 1). Consider not soldering pin 1 (or just remove pin 1 from the header), since it is unused. A short between 3.3V pin 1 and 5V pin 2 can kill the RPi.
 
-5. Install the I/V resistors R4 and R5 on the top with the labeled (pretty) sides facing away from the TDA1387 module for both, and solder leads to the bottom pads. Handle with care. Use the C1, C2, C5 or C6 capacitors to physically protect the resistors i.e. mount the resistors below the top of the capacitors. Use clip on heat sinks (alligator clips or test leads) to protect the resistors during soldering.
+5. Install capacitors C1, C2 or C5, C6 to the top of the board and use convenient pads (for example, an axial capacitor could use the left C5 pad for one lead and the right C2 pad for the other lead).
 
-6. Install the RCA jacks to the top of the PCB and solder to the pads on the bottom.
+6. Install the I/V resistors R4 and R5 on the top with the labeled (pretty) sides facing away from the TDA1387 module for both, and solder leads to the bottom pads. Handle with care. Use the C1, C2, C5 or C6 capacitors to physically protect the resistors i.e. mount the resistors below the top of the capacitors. Use clip on heat sinks (alligator clips or test leads) to protect the resistors during soldering.
+
+7. Install the RCA jacks to the top of the PCB and solder to the pads on the bottom.
 
 Perform a final quality check and inspect all soldered joints for any obvious flaws or defects, such as cracks, gaps, discoloration, or excess solder. Finally, clean off any flux residue on the PCB.
 
