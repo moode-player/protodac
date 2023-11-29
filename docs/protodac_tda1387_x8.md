@@ -192,13 +192,13 @@ Boutique film capacitors can be very expensive and are often too large for the a
 
 Assembly consists of installing and soldering the components to the PCB. Use a high conductivity, 60/40 (Tin/Lead), rosin core, fast melting solder for example Kester 0.031 inch diameter steel-based solder.
 
-1. Mount the three I2S resistors R1-R3 to the top of the PCB, and solder leads to the pads on the bottom.
+1. Mount the 40 pin female header (H1) to the bottom, and solder to the pads on the top. Double check the solder joints on pins 2,4,6,12,35,40.
 
-2. Mount the module to the top of the PCB, and solder pins 1-3, 5, 6, 25 and 28 to the pads on the bottom.
+2. Test the connections after soldering the 40 pin header. Using a DMM, be sure there are no shorts between 5V power (pins 2 and 4) and ground (pin 6) and also 3.3V (pin 1). Consider not soldering pin 1 (or just remove pin 1 from the header), since it is unused. A short between 3.3V pin 1 and 5V pin 2 can damage the RPi. Finally, clean flux from the top of the PCB with flux remover.
 
-3. Mount the 40 pin female header (H1) to the bottom, and solder to the pads on the top. Double check the solder joints on pins 2,4,6,12,35,40.
+3. Mount the three I2S resistors R1-R3 to the top of the PCB, and solder leads to the pads on the bottom.
 
-4. Test the connections after soldering the 40 pin  header. Using a DMM, be sure you don't have shorts between 5V power (pins 2 and 4) and ground (pin 6) and also 3.3V (pin 1). Consider not soldering pin 1 (or just remove pin 1 from the header), since it is unused. A short between 3.3V pin 1 and 5V pin 2 can kill the RPi.
+4. Mount the module to the top of the PCB, and solder pins 1-3, 5, 6, 25 and 28 to the pads on the bottom.
 
 5. Install capacitors C1, C2 or C5, C6 to the top of the board and use convenient pads (for example, an axial capacitor could use the left C5 pad for one lead and the right C2 pad for the other lead).
 
