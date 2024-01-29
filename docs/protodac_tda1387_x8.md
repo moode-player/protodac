@@ -3,12 +3,23 @@
 ProtoDAC TDA1387 X8 <!-- omit in toc -->
 ===============================================
 By: @hifinet (c) 2023  
-[License: MIT](#63-mit-license)
 
 Edited by @Tim Curtis  
-Updated: 2023-11-29
+Updated: 2024-01-27
 
 This document describes the ProtoDAC TDA1387 X8 Non-Oversampling (NOS) Digital to Analog Converter (DAC) including technology, component sources and instructions for building the DAC.
+
+### Disclaimer ###
+
+The information in this document is distributed under the [MIT license](https://opensource.org/license/mit/) which includes the following disclaimer:
+
+`THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`
 
 ### Table of Contents <!-- omit in toc -->
 
@@ -193,6 +204,14 @@ Boutique film capacitors can be very expensive and are often too large for the a
 Assembly consists of installing and soldering the components to the PCB. Use a high conductivity, 60/40 (Tin/Lead), rosin core, fast melting solder for example Kester 0.031 inch diameter steel-based solder.
 
 1. Mount the 40 pin female header (H1) to the bottom, and solder to the pads on the top. Double check the solder joints on pins 2,4,6,12,35,40.
+
+If you are planning to use ProtoDAC with one of the Ian Canada reclockers, please note that these reclockers have a nonstandard GPIO. View this thread for more information https://moodeaudio.org/forum/showthread.php?tid=5531&pid=51530#pid51530
+
+If connected to the GPIO of these reclockers, ProtoDAC will only receive 3.3V and not the required 5V power. This may result in ProtoDAC producing no sound or degraded sound. Here are two options to remedy this.
+
+Option 1: Remove header pins 2 and 4 from the ProtoDAC GPIO prior to soldering so it no longer receives power from the reclocker GPIO, then use the GND and 5V solder pads between the RCA jacks on the ProtoDAC to power it with a 5V supply.
+
+Option 2: This option leaves the ProtoDAC GPIO header unchanged by using a stacking header with pins 2 and 4 removed. Like option 1 the GND and 5V solder pads are used to power ProtoDAC with a 5V supply. If at a later point you want to attach ProtoDAC directly to a Raspberry Pi GPIO (which provides 5V) then simply remove the stacking header.
 
 2. Test the connections after soldering the 40 pin header. Using a DMM, be sure there are no shorts between 5V power (pins 2 and 4) and ground (pin 6) and also 3.3V (pin 1). Consider not soldering pin 1 (or just remove pin 1 from the header), since it is unused. A short between 3.3V pin 1 and 5V pin 2 can damage the RPi. Finally, clean flux from the top of the PCB with flux remover.
 
