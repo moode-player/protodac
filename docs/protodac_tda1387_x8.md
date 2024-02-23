@@ -229,6 +229,8 @@ Option 2: This option leaves the ProtoDAC GPIO header unchanged by using a stack
 
 7. Install the RCA jacks to the top of the PCB and solder to the pads on the bottom.
 
+8. Install electrolytic capacitors C3 and C4 to the top of the board and solder to the pads on the bottom. Be sure to double check the polarity.
+
 Perform a final quality check and inspect all soldered joints for any obvious flaws or defects, such as cracks, gaps, discoloration, or excess solder. Finally, clean off any flux residue on the PCB.
 
 ## WARNING
