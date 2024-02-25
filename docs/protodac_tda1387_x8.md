@@ -328,27 +328,27 @@ Two resampling options are included in moOde. The first is Sound eXchange (SoX) 
 
 The following are questions received from a ProtoDAC builder (with answers):
 
-##### 1. Do I mount GPIO header on the back of PCB?  
+#### 1. Do I mount GPIO header on the back of PCB?  
 The header (plastic piece) mounts on the bottom of the PCB. The pins are soldered on top (labeled ProtoDAC TDA1387 X8).
 
-##### 2. You said "and then do your best job on the working GPIO pins (2,4,6,12,35,40)”.  Does that mean I only solder those pins that you mentioned?  
+#### 2. You said "and then do your best job on the working GPIO pins (2,4,6,12,35,40)”.  Does that mean I only solder those pins that you mentioned?  
 It is best to solder all of the pins for good mechanical support. Just be sure to do your best solder job on the working pins.
 
-##### 3. Do I always read the pin numbers from the top of PCB? The pin 1 is marked by a square.  
+#### 3. Do I always read the pin numbers from the top of PCB? The pin 1 is marked by a square.  
 Yes, that is correct. The square pad is pin 1.
 
-##### 4. Should I pair Nichicon 1000 microF 6.4 V with those Panasonic ones that you gave to me for free?  
+#### 4. Should I pair Nichicon 1000 microF 6.4 V with those Panasonic ones that you gave to me for free?  
 I personally think that two black Panasonic FR-A sound best. Some people like the Nichicon UKA. The total capacitance of the parallel capacitors C3 and C4 should be 2000uF . If you use the blue Nichicon UKA 1000uF, use it with a black Panasonic 1000uF. Later on, feel free to experiment with other capacitors with larger or smaller capacitance. It does affect the sound quite a bit.
 
-##### 5. When I was looking for the capacitors, "voltage rating?" was one of the questions been asked? How do I choose the correct one?  
+#### 5. When I was looking for the capacitors, "voltage rating?" was one of the questions been asked? How do I choose the correct one?  
 For the output film capacitors, get the lowest voltage (probably 35V). The most voltage they could possibly see is 5V. The lower the voltage, the smaller the capacitor.
 
 For the electrolytic capacitors (the black Panasonic or blue Nichicon), they should be rated no lower than 6.3V. They see the power supply voltage of 5V, and you need a safety margin. Again, the higher the voltage rating, the larger the capacitor for a given capacitance.
 
-##### 6. What is the purpose to have output capacitors? instant high current (low impedance), or the last step to filter out DC offset?  
+#### 6. What is the purpose to have output capacitors? instant high current (low impedance), or the last step to filter out DC offset?  
 They are needed to block DC voltage at the output.
 
-##### 7. How do you ground the PCB board? I couldn’t see any connection on the board.  
+#### 7. How do you ground the PCB board? I couldn’t see any connection on the board.  
 The PCB is grounded through GPIO pins 6 and 14 when it is attached to the Raspberry Pi. There is also a ground pad between the RCA jacks, labeled GND.
 
 It is possible to power ProtoDAC and the Raspberry Pi by applying power to the 5V and GND pads between the RCA jacks on ProtoDAC. Note that this bypasses protection circuitry built into the Raspberry Pi, and thus any failures in ProtoDAC can potentially damage the Raspberry Pi.
