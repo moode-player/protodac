@@ -312,7 +312,6 @@ Two resampling options are included in moOde. The first is Sound eXchange (SoX) 
 + Set Status to "ON"
 + Set Expert mode to "ON"
 + Click OPEN
-
 + Click the Devices tab
 + Set samplerate to the desired rate
 + Set resampler_type to "AsyncSinc"
