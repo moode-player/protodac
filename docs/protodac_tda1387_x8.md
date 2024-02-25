@@ -277,7 +277,7 @@ Two polarity inversion options are included in moOde. The first is ALSA based wh
 This assumes at least CamillaDSP version 2.0.1 and the sample configs have been updated to version 2. The "V2-ProtoDAC" configuration used here has the following description: `ProtoDAC TDA1387 X8 Non-oversampling DAC. Invert +/- signal polarity on both channels and apply Flat dither to 16 bit samples.`
 
 + Menu, Configure, CamillaDSP
-+ Set "Default device" to YES
++ Set "Default device" to ON
 + Set "Signal processing" to V2-ProtoDAC
 + Click SAVE
 
