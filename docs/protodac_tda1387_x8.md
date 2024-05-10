@@ -248,11 +248,11 @@ Click Menu, configure Audio to configure the I2S driver and Advanced Linux Sound
 
 ### Audio Output
 
-Select "ProtoDAC TDA1387 X8" from the "Named I2S device" dropdown list, click SET and then Restart the system. After restarting the "Volume type" setting should show "Software".
+Select "ProtoDAC TDA1387 X8" from the "Named I2S device" dropdown list and then Restart the system. After restarting the "Volume type" setting should show "Software".
 
 ### ALSA Options
 
-Select "Direct (hw)" from the "Output mode" dropdown list and then click SET.
+Select "Direct (hw)" from the "Output mode" dropdown list.
 
 ### Sound test
 
@@ -269,15 +269,14 @@ Two polarity inversion options are included in moOde. The first is ALSA based wh
 + Menu, configure Audio
 + Scroll down to the "MPD Options" section
 + Scroll down to "DSP options"
-+ Click "Polarity inversion" ON
-+ Click SET
++ Turn "Polarity inversion" on
 
 ### CamillaDSP Polarity Inversion
 
 This assumes at least CamillaDSP version 2.0.1 and the sample configs have been updated to version 2. The "V2-ProtoDAC" configuration used here has the following description: `ProtoDAC TDA1387 X8 Non-oversampling DAC. Invert +/- signal polarity on both channels and apply Flat dither to 16 bit samples.`
 
 + Menu, Configure, CamillaDSP
-+ Set "Default device" to ON
++ Turn "Default device" on
 + Set "Signal processing" to V2-ProtoDAC
 + Click SAVE
 
